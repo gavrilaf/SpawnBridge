@@ -1,0 +1,6 @@
+use_frameworks!
+target 'SpawnBridge_Tests' do
+  pod 'SpawnBridge', :path => '../'
+  
+  
+end
