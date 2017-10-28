@@ -1,0 +1,30 @@
+{
+  "name": "SpawnBridge",
+  "version": "0.1.0",
+  "summary": "A short description of SpawnBridge.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/gavrilaf/SpawnBridge",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "gavrilaf": "eugenf78@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/gavrilaf/SpawnBridge.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.3"
+  },
+  "source_files": "SpawnBridge/Classes/**/*",
+  "dependencies": {
+    "PromiseKit": [
+      "~> 4.4"
+    ],
+    "Alamofire": [
+      "~> 4.5"
+    ]
+  }
+}

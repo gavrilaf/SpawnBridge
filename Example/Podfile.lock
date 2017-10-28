@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (4.5.1)
+  - PromiseKit (4.4.3):
+    - PromiseKit/Foundation (= 4.4.3)
+    - PromiseKit/QuartzCore (= 4.4.3)
+    - PromiseKit/UIKit (= 4.4.3)
+  - PromiseKit/CorePromise (4.4.3)
+  - PromiseKit/Foundation (4.4.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.4.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.4.3):
+    - PromiseKit/CorePromise
+  - SpawnBridge (0.1.0):
+    - Alamofire (~> 4.5)
+    - PromiseKit (~> 4.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - PromiseKit (~> 4.4)
+  - SpawnBridge (from `../`)
+
+EXTERNAL SOURCES:
+  SpawnBridge:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  PromiseKit: fbb52a0d154402c57eeb6eccd36dd7724fcf6117
+  SpawnBridge: 72cac5d61237e50422af2573b93314cef927744d
+
+PODFILE CHECKSUM: 9e2f3679f37efe819a54b389e1e88dc68488669c
+
+COCOAPODS: 1.3.1

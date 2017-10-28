@@ -1,0 +1,6 @@
+framework module SpawnBridge {
+  umbrella header "SpawnBridge-umbrella.h"
+
+  export *
+  module * { export * }
+}

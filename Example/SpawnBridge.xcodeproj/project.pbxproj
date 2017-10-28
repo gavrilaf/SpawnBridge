@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46AB1CD41FA4E3650041B57D /* AuthAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB1CD31FA4E3650041B57D /* AuthAPITests.swift */; };
+		46AB1CD61FA4E3C60041B57D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB1CD51FA4E3C60041B57D /* Environment.swift */; };
+		46AB1CD81FA4E4520041B57D /* SpawnAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB1CD71FA4E4520041B57D /* SpawnAPIDelegate.swift */; };
 		4BBE291BCCD34949B94DD405 /* Pods_SpawnBridge_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC341DBE735E500FA22E3DE /* Pods_SpawnBridge_Tests.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1C89FF0A0FA99BBEB05CB791 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		1C89FF0A0FA99BBEB05CB791 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		3AC341DBE735E500FA22E3DE /* Pods_SpawnBridge_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpawnBridge_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5222A4D0C7CC8CBDF3270532 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		59D2E7C43EC3717413DBE8E6 /* SpawnBridge.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SpawnBridge.podspec; path = ../SpawnBridge.podspec; sourceTree = "<group>"; };
+		46AB1CD31FA4E3650041B57D /* AuthAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPITests.swift; sourceTree = "<group>"; };
+		46AB1CD51FA4E3C60041B57D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		46AB1CD71FA4E4520041B57D /* SpawnAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnAPIDelegate.swift; sourceTree = "<group>"; };
+		5222A4D0C7CC8CBDF3270532 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		59D2E7C43EC3717413DBE8E6 /* SpawnBridge.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SpawnBridge.podspec; path = ../SpawnBridge.podspec; sourceTree = "<group>"; };
 		5B90FA5023D2E399005D3E31 /* Pods-SpawnBridge_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpawnBridge_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpawnBridge_Tests/Pods-SpawnBridge_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* SpawnBridge_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpawnBridge_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +49,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		46AB1CD11FA4E34B0041B57D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				46AB1CD31FA4E3650041B57D /* AuthAPITests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		46AB1CD21FA4E34B0041B57D /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				46AB1CD51FA4E3C60041B57D /* Environment.swift */,
+				46AB1CD71FA4E4520041B57D /* SpawnAPIDelegate.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +88,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				46AB1CD11FA4E34B0041B57D /* API */,
+				46AB1CD21FA4E34B0041B57D /* Mock */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -131,10 +156,6 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
-					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
@@ -178,10 +199,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpawnBridge_Tests/Pods-SpawnBridge_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SpawnBridge/SpawnBridge.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpawnBridge.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,7 +254,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46AB1CD41FA4E3650041B57D /* AuthAPITests.swift in Sources */,
+				46AB1CD61FA4E3C60041B57D /* Environment.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				46AB1CD81FA4E4520041B57D /* SpawnAPIDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -327,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
