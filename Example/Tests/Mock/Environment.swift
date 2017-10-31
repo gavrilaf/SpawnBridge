@@ -13,7 +13,7 @@ struct Environment {
     static let endpoint = "http://localhost:8080"
     
     static let client = SpawnClientEntry(id: "client_test",
-                                         secret: "client_secret")
+                                         secret: "client_test_key")
     
      
     

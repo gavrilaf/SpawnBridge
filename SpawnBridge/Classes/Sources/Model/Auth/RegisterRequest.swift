@@ -22,8 +22,8 @@ public struct RegisterRequest {
         self.password = password
     }
     
-    var signature: String {
-        return "2222222"
+    public var signature: String {
+        return (client.id + device.deviceId + username).hmacSHA512(usingKey: client.secret)?.hexEncoded() ?? ""
     }
 }
 

@@ -36,6 +36,8 @@ class AuthAPITests: XCTestCase {
                                       username: "test-user",
                                       password: "test-password")
         
+        print("Signature: \(request.signature)")
+        
         api.auth.register(request: request).then { (dto) -> Void in
             exp.fulfill()
         }.catch { (err) in

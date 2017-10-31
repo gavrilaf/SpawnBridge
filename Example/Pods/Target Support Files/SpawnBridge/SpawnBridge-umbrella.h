@@ -14,3 +14,5 @@
 FOUNDATION_EXPORT double SpawnBridgeVersionNumber;
 FOUNDATION_EXPORT const unsigned char SpawnBridgeVersionString[];
 
+#include "Cryptx.h"
+
