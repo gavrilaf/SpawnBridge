@@ -17,7 +17,22 @@ public enum SpawnError: Error {
 
 extension SpawnError: CustomStringConvertible {
     public var description: String {
-        return "error"
+        switch self {
+        case .invalidJson:
+            return "Invalid json"
+        case .internalError(let msg):
+            return "Internal error: \(msg)"
+        case .invalidRequest(let request):
+            return "Invalid request: \(request)"
+        case .sysError(let err):
+            return "System error: \(err)"
+        case .apiError(let code, let json):
+            if let json = json {
+                return "Api error, code = \(code): \(json)"
+            } else {
+                return "Api error, code = \(code)"
+            }
+        }
     }
 }
 

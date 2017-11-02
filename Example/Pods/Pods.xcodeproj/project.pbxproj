@@ -47,6 +47,8 @@
 		46AB1CED1FA524350041B57D /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB1CEC1FA524350041B57D /* ConsoleLogger.swift */; };
 		46B8BFFF1FA7BFF100533DC4 /* Cryptx.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B8BFFD1FA7BFF100533DC4 /* Cryptx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46B8C0001FA7BFF100533DC4 /* Cryptx.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B8BFFE1FA7BFF100533DC4 /* Cryptx.m */; };
+		46BE3F4D1FAAF90400F09BFD /* AuthTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BE3F4C1FAAF90400F09BFD /* AuthTokenDTO.swift */; };
+		46BE3F4F1FAAFD8D00F09BFD /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BE3F4E1FAAFD8D00F09BFD /* LoginRequest.swift */; };
 		50DD93E451C898ACF6B56559BFDCEA6D /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB03045DB10F7089377C70AF5B3F670 /* State.swift */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0DEFA8B8F894D4BFC00D53E40611EC /* Request.swift */; };
 		54431C74D82E07E5F6E627476EB82DD1 /* PMKUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 475705EF39C1CD6FEAE0873C0353F9A7 /* PMKUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -198,6 +200,8 @@
 		46AB1CEC1FA524350041B57D /* ConsoleLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		46B8BFFD1FA7BFF100533DC4 /* Cryptx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cryptx.h; sourceTree = "<group>"; };
 		46B8BFFE1FA7BFF100533DC4 /* Cryptx.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cryptx.m; sourceTree = "<group>"; };
+		46BE3F4C1FAAF90400F09BFD /* AuthTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenDTO.swift; sourceTree = "<group>"; };
+		46BE3F4E1FAAFD8D00F09BFD /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		475705EF39C1CD6FEAE0873C0353F9A7 /* PMKUIKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PMKUIKit.h; path = Extensions/UIKit/Sources/PMKUIKit.h; sourceTree = "<group>"; };
 		475A72056C770A5978AB453E7DC5B3AE /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		4C1356040CC9A1CCCED79A1A510AF74E /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
@@ -429,11 +433,9 @@
 		46AB1CB61FA4C60D0041B57D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				46AB1CC71FA4CE430041B57D /* SpawnClientEntry.swift */,
-				46AB1CC91FA4D1F80041B57D /* DeviceInfoEntry.swift */,
-				46AB1CCB1FA4D4750041B57D /* AuthTokenEntry.swift */,
-				46AB1CC51FA4CDFB0041B57D /* RegisterRequest.swift */,
-				46AB1CE01FA509070041B57D /* RegisterDTO.swift */,
+				46BE3F4B1FAAF63100F09BFD /* DTO */,
+				46BE3F4A1FAAF61900F09BFD /* Request */,
+				46BE3F491FAAF60E00F09BFD /* Entry */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -505,6 +507,34 @@
 				46AB1CEC1FA524350041B57D /* ConsoleLogger.swift */,
 			);
 			path = Logger;
+			sourceTree = "<group>";
+		};
+		46BE3F491FAAF60E00F09BFD /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				46AB1CC71FA4CE430041B57D /* SpawnClientEntry.swift */,
+				46AB1CC91FA4D1F80041B57D /* DeviceInfoEntry.swift */,
+				46AB1CCB1FA4D4750041B57D /* AuthTokenEntry.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		46BE3F4A1FAAF61900F09BFD /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				46AB1CC51FA4CDFB0041B57D /* RegisterRequest.swift */,
+				46BE3F4E1FAAFD8D00F09BFD /* LoginRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		46BE3F4B1FAAF63100F09BFD /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				46AB1CE01FA509070041B57D /* RegisterDTO.swift */,
+				46BE3F4C1FAAF90400F09BFD /* AuthTokenDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		470B2EC4B502506F1DCAE0EE7E194226 /* Support Files */ = {
@@ -861,7 +891,9 @@
 				460209331FA5B64D000AA662 /* Data.swift in Sources */,
 				46AB1CBF1FA4C6540041B57D /* SpawnRestApiAssembly.swift in Sources */,
 				46AB1CDA1FA5007F0041B57D /* RequestExecutor.swift in Sources */,
+				46BE3F4F1FAAFD8D00F09BFD /* LoginRequest.swift in Sources */,
 				46AB1CDD1FA5026B0041B57D /* SpawnError.swift in Sources */,
+				46BE3F4D1FAAF90400F09BFD /* AuthTokenDTO.swift in Sources */,
 				46AB1CCF1FA4E0250041B57D /* BaseRequest.swift in Sources */,
 				46AB1CC61FA4CDFB0041B57D /* RegisterRequest.swift in Sources */,
 				46AB1CBC1FA4C60D0041B57D /* AuthApiProtocol.swift in Sources */,

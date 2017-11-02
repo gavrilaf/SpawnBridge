@@ -68,7 +68,10 @@ class RequestExecutor {
                     switch response.result {
                     case .success(let value):
                         do {
+                            
                             let decoder = JSONDecoder()
+                            decoder.dateDecodingStrategy = .iso8601
+                            
                             let code = response.response?.statusCode ?? 500
                             switch code {
                             case 200:

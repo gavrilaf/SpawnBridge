@@ -23,28 +23,20 @@ class AuthAPITests: XCTestCase {
         
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
     
     func testRegister() {
         let exp = expectation(description: "")
-        
         let request = RegisterRequest(client: Environment.client,
                                       device: DeviceInfoEntry(id: "d1", desc: "d1 device name"),
                                       username: "test-user",
                                       password: "test-password")
         
-        print("Signature: \(request.signature)")
-        
         api.auth.register(request: request).then { (dto) -> Void in
             exp.fulfill()
         }.catch { (err) in
-            XCTFail(err.localizedDescription)
+            XCTFail("\(err)")
             exp.fulfill()
         }
-        
         
         waitForExpectations(timeout: 30) { (err) in
             if let err = err {
@@ -53,6 +45,24 @@ class AuthAPITests: XCTestCase {
         }
     }
     
-    
-    
+    func testLogin() {
+        let exp = expectation(description: "")
+        let request = LoginRequest(client: Environment.client,
+                                   device: Environment.existingUser.device,
+                                   username: Environment.existingUser.username,
+                                   password: Environment.existingUser.psw)
+        
+        api.auth.login(request: request).then { (dto) -> Void in
+            exp.fulfill()
+        }.catch { (err) in
+            XCTFail("\(err)")
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30) { (err) in
+            if let err = err {
+                XCTFail(err.localizedDescription)
+            }
+        }
+    }
 }

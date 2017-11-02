@@ -8,7 +8,6 @@
 import Foundation
 
 public struct SpawnErrorDTO: Codable {
-    
     public struct ErrorDTO: Codable {
         public let scope: String
         public let reason: String?
@@ -16,7 +15,11 @@ public struct SpawnErrorDTO: Codable {
     }
 
     public let error: ErrorDTO
-    
 }
 
+extension SpawnErrorDTO: CustomStringConvertible {
+    public var description: String {
+        return "(Scope: \(error.scope), Reason: \(error.reason ?? "(empty)"), Message: \(error.message ?? "(empty)")"
+    }
+}
 
