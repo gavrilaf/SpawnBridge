@@ -12,7 +12,7 @@ public enum SpawnError: Error {
     case internalError(msg: String)
     case invalidRequest(request: BaseRequest)
     case sysError(err: Error)
-    case apiError(code: Int, json: SpawnErrorDTO?)
+    case apiError(code: Int, err: SpawnErrorDTO?)
 }
 
 extension SpawnError: CustomStringConvertible {
@@ -26,9 +26,9 @@ extension SpawnError: CustomStringConvertible {
             return "Invalid request: \(request)"
         case .sysError(let err):
             return "System error: \(err)"
-        case .apiError(let code, let json):
-            if let json = json {
-                return "Api error, code = \(code): \(json)"
+        case .apiError(let code, let err):
+            if let err = err {
+                return "Api error, code = \(code): \(err)"
             } else {
                 return "Api error, code = \(code)"
             }

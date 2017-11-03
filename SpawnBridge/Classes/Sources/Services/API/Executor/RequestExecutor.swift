@@ -68,7 +68,6 @@ class RequestExecutor {
                     switch response.result {
                     case .success(let value):
                         do {
-                            
                             let decoder = JSONDecoder()
                             decoder.dateDecodingStrategy = .iso8601
                             
@@ -78,7 +77,7 @@ class RequestExecutor {
                                 fulfill(try decoder.decode(T.self, from: value))
                             default:
                                 let err = try decoder.decode(SpawnErrorDTO.self, from: value)
-                                reject(SpawnError.apiError(code: code, json: err))
+                                reject(SpawnError.apiError(code: code, err: err))
                             }
                         } catch let err {
                             reject(err)
