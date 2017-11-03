@@ -30,6 +30,7 @@
 		43E8E370C156FB4596157FE2EB9F4DDE /* fwd.h in Headers */ = {isa = PBXBuildFile; fileRef = 501CB163DE7B7F59F59C62C76F13A1E3 /* fwd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		460209311FA5B638000AA662 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460209301FA5B638000AA662 /* String.swift */; };
 		460209331FA5B64D000AA662 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460209321FA5B64D000AA662 /* Data.swift */; };
+		464849B41FAC562300B65FEC /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464849B21FAC52D500B65FEC /* RefreshTokenRequest.swift */; };
 		46AB1CBB1FA4C60D0041B57D /* SpawnRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB1CB91FA4C60D0041B57D /* SpawnRestApi.swift */; };
 		46AB1CBC1FA4C60D0041B57D /* AuthApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB1CBA1FA4C60D0041B57D /* AuthApiProtocol.swift */; };
 		46AB1CBF1FA4C6540041B57D /* SpawnRestApiAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB1CBE1FA4C6540041B57D /* SpawnRestApiAssembly.swift */; };
@@ -182,6 +183,7 @@
 		3DB83DEE18EB958220B42D26A726EA74 /* CALayer+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+AnyPromise.h"; path = "Extensions/QuartzCore/Sources/CALayer+AnyPromise.h"; sourceTree = "<group>"; };
 		460209301FA5B638000AA662 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		460209321FA5B64D000AA662 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		464849B21FAC52D500B65FEC /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
 		4655B4C1707E9902435774C9B1981618 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Sources/Error.swift; sourceTree = "<group>"; };
 		46AB1CB91FA4C60D0041B57D /* SpawnRestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawnRestApi.swift; sourceTree = "<group>"; };
 		46AB1CBA1FA4C60D0041B57D /* AuthApiProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthApiProtocol.swift; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 			children = (
 				46AB1CC51FA4CDFB0041B57D /* RegisterRequest.swift */,
 				46BE3F4E1FAAFD8D00F09BFD /* LoginRequest.swift */,
+				464849B21FAC52D500B65FEC /* RefreshTokenRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -890,6 +893,7 @@
 				46AB1CEB1FA523C60041B57D /* Logger.swift in Sources */,
 				460209331FA5B64D000AA662 /* Data.swift in Sources */,
 				46AB1CBF1FA4C6540041B57D /* SpawnRestApiAssembly.swift in Sources */,
+				464849B41FAC562300B65FEC /* RefreshTokenRequest.swift in Sources */,
 				46AB1CDA1FA5007F0041B57D /* RequestExecutor.swift in Sources */,
 				46BE3F4F1FAAFD8D00F09BFD /* LoginRequest.swift in Sources */,
 				46AB1CDD1FA5026B0041B57D /* SpawnError.swift in Sources */,

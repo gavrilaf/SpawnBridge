@@ -11,5 +11,8 @@ import PromiseKit
 public protocol AuthApiProtocol {
     
     func register(request: RegisterRequest) -> Promise<RegisterDTO>
+    
     func login(request: LoginRequest) -> Promise<AuthTokenDTO>
+    func refreshToken(request: RefreshTokenRequest) -> Promise<AuthTokenDTO>
+    
 }

@@ -92,6 +92,9 @@ class AuthAPITests: XCTestCase {
                                    password: Environment.existingUser.psw)
         
         api.auth.login(request: request).then { (dto) -> Void in
+            XCTAssertGreaterThan(dto.authToken.count, 0)
+            XCTAssertGreaterThan(dto.refreshToken.count, 0)
+            
             exp.fulfill()
         }.catch { (err) in
             XCTFail("\(err)")
@@ -145,7 +148,7 @@ class AuthAPITests: XCTestCase {
                                    password: Environment.existingUser.psw)
         
         api.auth.login(request: request).then { (_) -> Void in
-            XCTFail("Must be error")
+                XCTFail("Must be error")
             }.catch { (err) in
                 let err2 = err as? SpawnError
                 XCTAssertNotNil(err2)
@@ -177,7 +180,7 @@ class AuthAPITests: XCTestCase {
                                    password: Environment.existingUser.psw)
         
         api.auth.login(request: request).then { (_) -> Void in
-            XCTFail("Must be error")
+                XCTFail("Must be error")
             }.catch { (err) in
                 let err2 = err as? SpawnError
                 XCTAssertNotNil(err2)
@@ -200,4 +203,32 @@ class AuthAPITests: XCTestCase {
             }
         }
     }
+    
+    func testRefreshToken() {
+        let exp = expectation(description: "")
+        let request = LoginRequest(client: Environment.client,
+                                   device: Environment.existingUser.device,
+                                   username: Environment.existingUser.username,
+                                   password: Environment.existingUser.psw)
+        
+        api.auth.login(request: request).then { (dto) -> Promise<AuthTokenDTO> in
+            let refreshReq = RefreshTokenRequest(auth: dto.authToken, refresh: dto.refreshToken)
+            return self.api.auth.refreshToken(request: refreshReq)
+        }.then { (dto) -> Void in
+            XCTAssertGreaterThan(dto.authToken.count, 0)
+            XCTAssertEqual(dto.refreshToken.count, 0)
+            
+            exp.fulfill()
+        }.catch { (err) in
+            XCTFail("\(err)")
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30) { (err) in
+            if let err = err {
+                XCTFail(err.localizedDescription)
+            }
+        }
+    }
+    
 }

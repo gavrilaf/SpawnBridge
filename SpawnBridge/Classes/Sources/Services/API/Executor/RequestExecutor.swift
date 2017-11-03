@@ -76,8 +76,12 @@ class RequestExecutor {
                             case 200:
                                 fulfill(try decoder.decode(T.self, from: value))
                             default:
-                                let err = try decoder.decode(SpawnErrorDTO.self, from: value)
-                                reject(SpawnError.apiError(code: code, err: err))
+                                do {
+                                    let err = try decoder.decode(SpawnErrorDTO.self, from: value)
+                                    reject(SpawnError.apiError(code: code, err: err))
+                                } catch { // invalid json - return just a code
+                                    reject(SpawnError.apiError(code: code, err: nil))
+                                }
                             }
                         } catch let err {
                             reject(err)

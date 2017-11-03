@@ -33,4 +33,8 @@ extension SpawnRestApiAssembly: AuthApiProtocol {
     public func login(request: LoginRequest) -> Promise<AuthTokenDTO> {
         return executor.runNoAuth(request: request)
     }
+    
+    public func refreshToken(request: RefreshTokenRequest) -> Promise<AuthTokenDTO> {
+        return executor.runNoAuth(request: request)
+    }
 }
