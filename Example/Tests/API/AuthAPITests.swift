@@ -247,4 +247,43 @@ class AuthAPITests: XCTestCase {
         }
     }
     
+    func testFullProcess() {
+        let exp = expectation(description: "")
+        
+        let username = createUserName()
+        let device = DeviceInfoEntry(id: "d1", desc: "d1 device name", locale: "en", lang: "en")
+        let password = "test-password"
+        
+        let regRequest = RegisterRequest(client: Environment.client, device: device, username: username, password: password)
+        
+        api.auth.register(request: regRequest).then { (_) -> Promise<AuthTokenDTO> in
+            let loginRequest = LoginRequest(client: Environment.client, device: device, username: username, password: password)
+            return self.api.auth.login(request: loginRequest)
+        }.then { (dto) -> Promise<AuthTokenDTO> in
+            XCTAssertFalse(dto.authToken.isEmpty)
+            XCTAssertFalse(dto.refreshToken.isEmpty)
+            
+            XCTAssertTrue(dto.permissions.isDeviceConfirmed)
+            
+            let refreshRequest = RefreshTokenRequest(auth: dto.authToken, refresh: dto.refreshToken)
+            return self.api.auth.refreshToken(request: refreshRequest)
+        }.then { (dto) -> Void in
+            XCTAssertFalse(dto.authToken.isEmpty)
+            XCTAssertTrue(dto.refreshToken.isEmpty)
+            
+            XCTAssertTrue(dto.permissions.isDeviceConfirmed)
+            
+            exp.fulfill()
+        }.catch { (err) in
+            XCTFail("\(err)")
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30) { (err) in
+            if let err = err {
+                XCTFail(err.localizedDescription)
+            }
+        }
+    }
+    
 }
