@@ -64,6 +64,8 @@ class RequestExecutor {
         
         return Promise { fulfill, reject in
             authSession.request(req)
+                .debugLog()
+                .responseString(queue: queue) { $0.debugLog() }
                 .responseData(queue: queue) { (response) in
                     switch response.result {
                     case .success(let value):

@@ -41,5 +41,6 @@ TODO: Add long description of the pod here.
 
   s.dependency "PromiseKit", "~> 4.4"
   s.dependency "Alamofire", "~> 4.5"
+  s.dependency "SwiftyBeaver"
 
 end

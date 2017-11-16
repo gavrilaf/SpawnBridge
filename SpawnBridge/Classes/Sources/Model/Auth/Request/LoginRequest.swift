@@ -37,6 +37,8 @@ extension LoginRequest: BaseRequest {
             "auth_type"     : "simple",
             "username"      : username,
             "password"      : password,
+            "locale"        : device.locale,
+            "lang"          : device.lang,
             "signature"     : signature
         ]
         

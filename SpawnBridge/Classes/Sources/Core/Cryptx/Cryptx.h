@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Cryptx : NSObject
 
-+ (NSData *) hmacSHA512: (NSString *) data usingKey: (NSString *) key;
++ (NSData *) hmacSHA512:(NSString *)data usingKey:(NSString *)key;
 
 @end
 

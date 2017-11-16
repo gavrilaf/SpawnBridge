@@ -36,6 +36,8 @@ extension RegisterRequest: BaseRequest {
             "device_name"   : device.description,
             "username"      : username,
             "password"      : password,
+            "locale"        : device.locale,
+            "lang"          : device.lang,
             "signature"     : signature
         ]
         
