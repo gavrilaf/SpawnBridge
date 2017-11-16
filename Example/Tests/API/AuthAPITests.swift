@@ -33,11 +33,21 @@ class AuthAPITests: XCTestCase {
         
         let name = createUserName()
         let request = RegisterRequest(client: Environment.client,
-                                      device: DeviceInfoEntry(id: "d1", desc: "d1 device name"),
+                                      device: DeviceInfoEntry(id: "d1", desc: "d1 device name", locale: "en", lang: "en"),
                                       username: name,
                                       password: "test-password")
         
         api.auth.register(request: request).then { (dto) -> Void in
+            
+            XCTAssertFalse(dto.authToken.isEmpty)
+            XCTAssertFalse(dto.refreshToken.isEmpty)
+            
+            XCTAssertTrue(dto.permissions.isDeviceConfirmed) // Device is confirmed after registration
+            
+            XCTAssertFalse(dto.permissions.is2FARequired)
+            XCTAssertFalse(dto.permissions.isEmailConfirmed)
+            XCTAssertFalse(dto.permissions.isLocked)
+            
             exp.fulfill()
         }.catch { (err) in
             XCTFail("\(err)")
@@ -92,8 +102,14 @@ class AuthAPITests: XCTestCase {
                                    password: Environment.existingUser.psw)
         
         api.auth.login(request: request).then { (dto) -> Void in
-            XCTAssertGreaterThan(dto.authToken.count, 0)
-            XCTAssertGreaterThan(dto.refreshToken.count, 0)
+            XCTAssertFalse(dto.authToken.isEmpty)
+            XCTAssertFalse(dto.refreshToken.isEmpty)
+            
+            XCTAssertTrue(dto.permissions.isDeviceConfirmed)
+            
+            XCTAssertFalse(dto.permissions.is2FARequired)
+            XCTAssertFalse(dto.permissions.isEmailConfirmed)
+            XCTAssertFalse(dto.permissions.isLocked)
             
             exp.fulfill()
         }.catch { (err) in
@@ -175,26 +191,26 @@ class AuthAPITests: XCTestCase {
     func testLoginUnknowDevice() {
         let exp = expectation(description: "")
         let request = LoginRequest(client: Environment.client,
-                                   device: DeviceInfoEntry(id: "unknown", desc: ""),
+                                   device: DeviceInfoEntry(id: "unknown", desc: "unknown", locale: "", lang: ""),
                                    username: Environment.existingUser.username,
                                    password: Environment.existingUser.psw)
         
-        api.auth.login(request: request).then { (_) -> Void in
-                XCTFail("Must be error")
-            }.catch { (err) in
-                let err2 = err as? SpawnError
-                XCTAssertNotNil(err2)
-                
-                switch err2! {
-                case .apiError(let code, let err3):
-                    XCTAssertEqual(code, 401)
-                    XCTAssertNotNil(err3)
-                    XCTAssertEqual(err3?.error.scope, "auth")
-                    XCTAssertEqual(err3?.error.reason, "device-unknown")
-                default:
-                    XCTFail("Must be api error")
-                }
-                exp.fulfill()
+        api.auth.login(request: request).then { (dto) -> Void in
+            // Login successed but device is not confirmed
+            
+            XCTAssertFalse(dto.authToken.isEmpty)
+            XCTAssertFalse(dto.refreshToken.isEmpty)
+            
+            XCTAssertFalse(dto.permissions.isDeviceConfirmed)
+            
+            XCTAssertFalse(dto.permissions.is2FARequired)
+            XCTAssertFalse(dto.permissions.isEmailConfirmed)
+            XCTAssertFalse(dto.permissions.isLocked)
+            
+            exp.fulfill()
+        }.catch { (err) in
+            XCTFail("\(err)")
+            exp.fulfill()
         }
         
         waitForExpectations(timeout: 30) { (err) in

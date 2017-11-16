@@ -25,6 +25,9 @@
     ],
     "Alamofire": [
       "~> 4.5"
+    ],
+    "SwiftyBeaver": [
+
     ]
   }
 }

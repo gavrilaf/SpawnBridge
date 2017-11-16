@@ -12,7 +12,6 @@
 		46AB1CD81FA4E4520041B57D /* SpawnAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB1CD71FA4E4520041B57D /* SpawnAPIDelegate.swift */; };
 		46B8C0031FA7C20D00533DC4 /* TypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B8C0021FA7C20D00533DC4 /* TypesTests.swift */; };
 		4BBE291BCCD34949B94DD405 /* Pods_SpawnBridge_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC341DBE735E500FA22E3DE /* Pods_SpawnBridge_Tests.framework */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		5B90FA5023D2E399005D3E31 /* Pods-SpawnBridge_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpawnBridge_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpawnBridge_Tests/Pods-SpawnBridge_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* SpawnBridge_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpawnBridge_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		CA40826967DD0C8C1659CA56 /* Pods-SpawnBridge_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpawnBridge_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpawnBridge_Tests/Pods-SpawnBridge_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +99,6 @@
 				46B8C0011FA7C15800533DC4 /* Core */,
 				46AB1CD11FA4E34B0041B57D /* API */,
 				46AB1CD21FA4E34B0041B57D /* Mock */,
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -213,12 +210,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SpawnBridge/SpawnBridge.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpawnBridge.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -268,7 +267,6 @@
 				46AB1CD41FA4E3650041B57D /* AuthAPITests.swift in Sources */,
 				46B8C0031FA7C20D00533DC4 /* TypesTests.swift in Sources */,
 				46AB1CD61FA4E3C60041B57D /* Environment.swift in Sources */,
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 				46AB1CD81FA4E4520041B57D /* SpawnAPIDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

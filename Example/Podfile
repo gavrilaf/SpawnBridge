@@ -4,6 +4,7 @@ target 'SpawnBridge_Tests' do
     
     pod "PromiseKit", "~> 4.4"
     pod "Alamofire", "~> 4.5"
+    pod "SwiftyBeaver"
     pod "SpawnBridge", :path => "../"
   
   

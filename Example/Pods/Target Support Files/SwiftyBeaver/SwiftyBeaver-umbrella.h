@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "Cryptx.h"
 
-FOUNDATION_EXPORT double SpawnBridgeVersionNumber;
-FOUNDATION_EXPORT const unsigned char SpawnBridgeVersionString[];
+FOUNDATION_EXPORT double SwiftyBeaverVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwiftyBeaverVersionString[];
 
